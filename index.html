@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sigmays</title>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/queries.css" />
+    <script defer src="js/script.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__logo">
+        <span>Sigmays</span>
+      </div>
+      <nav class="header__nav">
+        <ul class="header__nav__lists">
+          <li class="header_nav_list-items">
+            <a class="main-nav-link" href="#">Home</a>
+          </li>
+          <li class="header_nav_list-items">
+            <a class="main-nav-link" href="#jobs">Jobs</a>
+          </li>
+          <li class="header_nav_list-items">
+            <a class="main-nav-link" href="#">Companies</a>
+          </li>
+          <li class="header_nav_list-items">
+            <a class="main-nav-link btn--full" href="#">Career advice</a>
+          </li>
+        </ul>
+      </nav>
+      <button class="btn-mobile-nav">
+        <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+        <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+      </button>
+    </header>
+    <section class="section__hero">
+      <div class="hero">
+        <div class="hero-heading">
+          <h1 class="heading-primary">
+            Find the most exciting remote-friendly<br />
+            jobs
+          </h1>
+          <p class="section__hero__desc">
+            Sigmays is the largest remote work community in the world. With over
+            3M visitors per month.
+          </p>
+        </div>
+
+        <div class="section__hero__search">
+          <form class="section__hero__form grid">
+            <div class="section__input">
+              <ion-icon class="icon" name="search-outline"></ion-icon>
+              <input
+                type="text"
+                class="section__hero__form__input"
+                placeholder="Job title, keywords or company"
+              />
+            </div>
+            <div class="section__input">
+              <ion-icon class="icon" name="location-outline"></ion-icon>
+              <input
+                type="text"
+                class="section__hero__form__input"
+                placeholder="City, state or zip code"
+              />
+            </div>
+            <button class="btn">Search</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="section__hero__logos hero">
+        <p class="logo__desc">
+          These are some top companies which we offer jobs <br>
+          <a class="btn--full" href="#jobsList">See Jobs</a>
+        </p>
+        <ul class="logos">
+          <li><img src="imgs/logos/Samsung_Logowebp.webp" alt="insider" /></li>
+          <li><img src="imgs/logos/Buffer-Logo.png" alt="insider" /></li>
+          <li><img src="imgs/logos/Webflow_logo.svg.png" alt="insider" /></li>
+          <li><img src="imgs/logos/Autodesk_Logo-min.png" alt="insider" /></li>
+          <li>
+            <img src="imgs/logos/Recruit-CRM-Log0-min.png" alt="techcrunch" />
+          </li>
+          <li><img src="imgs/logos/rtcamp-log.webp" alt="york" /></li>
+        </ul>
+      </div>
+    </section>
+    <main>
+      <section class="section__Jobs" id="jobs">
+        <div class="container">
+          <div class="section__jobs__header">
+            <div class="section__jobs__header__heading">
+              <h2 class="heading-secondary">Job Listing</h2>
+              <p class="section__jobs__header__desc">
+                Find the most exciting jobs
+              </p>
+            </div>
+            <div class="section__jobs__button__container">
+              <a href="#jobsList" class="btn--full--big">All Listing</a>
+            </div>
+          </div>
+          <div class="categories__container" id="jobsList">
+            <ul class="categories__list">
+              <li class="list__item active">All Categoies</li>
+              <li class="list__item">Technology</li>
+              <li class="list__item">UI/UX</li>
+              <li class="list__item">Marketing</li>
+            </ul>
+          </div>
+          <div class="jobs__container">
+            <!-- <div class="job__card">
+              <div class="job__card__header">
+                <div class="company">
+                  <img
+                    class="card-logo"
+                    src="imgs/logos/apple-logo-min.jpg"
+                    alt="logo"
+                  />
+                  <h5>Apple</h5>
+                </div>
+                <ion-icon class="bookmark" name="bookmark-outline"></ion-icon>
+              </div>
+              <div class="job__card__body">
+                <h5 class="job__card__title">
+                  <a href="#">Backend Developer (Intern)</a>
+                </h5>
+                <div class="job__card__desc">
+                  <p class="location On-site">On-site</p>
+                  <p class="package">12Lpa - 18Lpa</p>
+                </div>
+              </div>
+              <div class="buttons">
+                <p class="date">7 Mar</p>
+                <button class="card-btn">Apply</button>
+              </div>
+            </div> -->
+          </div>
+          <!-- <div class="job__desc__container active">
+            <div class="close-btn">
+              <ion-icon name="close-outline"></ion-icon>
+            </div>
+            <div class="job__desc__header">
+              <div class="company">
+                <img
+                  class="card-logo"
+                  src="imgs/logos/apple-logo-min.jpg"
+                  alt="logo"
+                />
+                <h5>Apple</h5>
+              </div>
+              <ion-icon class="bookmark" name="bookmark-outline"></ion-icon>
+            </div>
+            <div class="job__card__body">
+              <h5 class="job__card__title">
+                <a href="#">Backend Developer (Intern)</a>
+              </h5>
+              <div class="job__card__desc">
+                <p class="location onsite">On-site</p>
+                <p class="location">Noida</p>
+                <p class="package">12Lpa - 18Lpa</p>
+              </div>
+            </div>
+            <div class="buttons job__desc__btn">
+              <p class="date">7 Mar</p>
+              <button class="card-btn">Apply</button>
+            </div>
+
+            <div class="job__desc__body">
+              <div class="job__desc">
+                <label class="heading-tertiary" for="description">Description</label>
+                <p class="description">
+                  Autodesk Enterprise Customer Success organization is seeking a
+                  talented Technical Consultant (Back End Developer) to design
+                  and develop customized and configured solutions for their
+                  Enterprise Application (EA) integrations with cloud-based
+                  technologies. This individual will work with the global
+                  consulting team to develop custom solutions built on Autodesk
+                  Cloud and On-Premises Products. This is an individual
+                  contributor role but has substantial influence and
+                  responsibility. The ideal candidate will have experience
+                  developing products and systems in Autodesk Forge and
+                  Microsoft Azure.
+                </p>
+              </div>
+              <div class="job__responsibility">
+                <label class="heading-tertiary"  for="responsibility">Responsibility</label>
+                <p class="responsibility">
+                  <ul class="res__list job__desc__list">
+                    <li class="res__item">Minimum 6 years of experience in the web and cloud technology domain</li>
+                    <li class="res__item">4-year Bachelor’s degree from an accredited institution in engineering, preferably with civil & mechanical specialization</li>
+                    <li class="res__item">Mandatory Extensive experience with Autodesk products like AutoCAD, Civil3D, and Revit and hands-on expertise with Revit API, Forge API and Microsoft Azure</li>
+                    <li class="res__item">Strong .NET skills (C#.net preferred)</li>
+                    <li class="res__item">Strong Experience with REST API creation</li>
+                  </ul>
+                </p>
+                <div class="tech__stack">
+                  <label class="heading-tertiary" for="tech__stack__list">Tech Stack</label>
+                  <ul class="tech__stack__list">
+                    <li class="tech__stack__item">C++</li>
+                    <li class="tech__stack__item">Java</li>
+                    <li class="tech__stack__item">JavaScript</li>
+                    <li class="tech__stack__item">Database</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="job__requirements">
+                <label class="heading-tertiary" for="requirements">Requirements</label>
+                <p class="requirements">
+                  <ul class="require__list job__desc__list">
+                    <li class="require__item">Minimum 6 years of experience in the web and cloud technology domain</li>
+                    <li class="require__item">4-year Bachelor’s degree from an accredited institution in engineering, preferably with civil & mechanical specialization</li>
+                    <li class="require__item">Mandatory Extensive experience with Autodesk products like AutoCAD, Civil3D, and Revit and hands-on expertise with Revit API, Forge API and Microsoft Azure</li>
+                    <li class="require__item">Strong .NET skills (C#.net preferred)</li>
+                    <li class="require__item">Strong Experience with REST API creation</li>
+                  </ul>
+                </p>
+              </div>
+            </div>
+          </div> -->
+          <div class="paging-container">
+            <ul class="pages">
+              <li class="slide">
+                <ion-icon name="caret-back-outline"></ion-icon>
+              </li>
+              <li class="page active">1</li>
+              <li class="page">2</li>
+              <li class="page">3</li>
+              <li class="page">4</li>
+              <li class="slide">
+                <ion-icon name="caret-forward-outline"></ion-icon>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>Copyright &circledR; 2025</p>
+      <p>Made By ❤️</p>
+    </footer>
+  </body>
+</html>
