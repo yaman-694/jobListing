@@ -79,6 +79,7 @@ const searchController = async function ({ jobSkill, city }) {
 const controlerPagination = function (goToPage) {
   jobCardView.render(model.getSearchResultsPage(goToPage));
   paginationView.render(model.state);
+  descriptionView.addHandlerRender(descriptionController);
 };
 const init = function () {
   jobCardView.addHandlerRender(jobsCardController);

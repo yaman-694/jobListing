@@ -34,7 +34,7 @@ class DescriptionView extends View {
     return `
         <div class="job__desc__container active">
             <div class="close-btn">
-              X
+              <ion-icon name="close-outline"></ion-icon>
             </div>
             <div class="job__desc__header">
               <div class="company">
