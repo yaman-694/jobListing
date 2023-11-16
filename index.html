@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sigmays</title>
-    <script
+    <!-- <script
       type="module"
       src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
     ></script>
     <script
       nomodule=""
       src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
-    ></script>
+    ></script> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/general.css" />
     <link rel="stylesheet" href="css/queries.css" />
+    <script type="module" src="js/controller.js"></script>
     <script defer src="js/script.js"></script>
   </head>
   <body>
@@ -69,7 +70,8 @@
               <input
                 type="text"
                 class="section__hero__form__input"
-                placeholder="Job title, keywords or company"
+                id="job-skill"
+                placeholder="Job skill: Html"
               />
             </div>
             <div class="section__input">
@@ -77,17 +79,18 @@
               <input
                 type="text"
                 class="section__hero__form__input"
-                placeholder="City, state or zip code"
+                id="city"
+                placeholder="City: New York"
               />
             </div>
-            <button class="btn">Search</button>
+            <button class="search__btn btn">Search</button>
           </form>
         </div>
       </div>
 
       <div class="section__hero__logos hero">
         <p class="logo__desc">
-          These are some top companies which we offer jobs <br>
+          These are some top companies which we offer jobs <br />
           <a class="btn--full" href="#jobsList">See Jobs</a>
         </p>
         <ul class="logos">
@@ -113,127 +116,34 @@
               </p>
             </div>
             <div class="section__jobs__button__container">
-              <a href="#jobsList" class="btn--full--big">All Listing</a>
+              <a href="#jobsList" class="reset-btn btn--full--big">Reset</a>
             </div>
           </div>
-          <div class="categories__container" id="jobsList">
-            <ul class="categories__list">
-              <li class="list__item active">All Categoies</li>
-              <li class="list__item">Technology</li>
-              <li class="list__item">UI/UX</li>
-              <li class="list__item">Marketing</li>
-            </ul>
+          <div class="filter__container">
+            <div class="categories__container" id="jobsList">
+              <ul class="categories__list">
+                <li class="list__item active" id="all">All Categoies</li>
+                <li class="list__item" id="development">Development</li>
+                <li class="list__item" id="sales">Sales</li>
+                <li class="list__item" id="marketing">Marketing</li>
+              </ul>
+            </div>
+            <div class="filter">
+              <select class="country__select" name="country" id="country">
+                <option value="all">All</option>
+                <option value="mexico">mexico</option>
+                <option value="india">India</option>
+                <option value="usa">USA</option>
+              </select>
+              <select class="category__select not-active" name="category" id="category">
+                <option value="all">All</option>
+                <option value="ui">UI/UX</option>
+                <option value="backend">Backend development</option>
+                <option value="Frontend">Frontend Development</option>
+              </select>
+            </div>
           </div>
-          <div class="jobs__container">
-            <!-- <div class="job__card">
-              <div class="job__card__header">
-                <div class="company">
-                  <img
-                    class="card-logo"
-                    src="imgs/logos/apple-logo-min.jpg"
-                    alt="logo"
-                  />
-                  <h5>Apple</h5>
-                </div>
-                <ion-icon class="bookmark" name="bookmark-outline"></ion-icon>
-              </div>
-              <div class="job__card__body">
-                <h5 class="job__card__title">
-                  <a href="#">Backend Developer (Intern)</a>
-                </h5>
-                <div class="job__card__desc">
-                  <p class="location On-site">On-site</p>
-                  <p class="package">12Lpa - 18Lpa</p>
-                </div>
-              </div>
-              <div class="buttons">
-                <p class="date">7 Mar</p>
-                <button class="card-btn">Apply</button>
-              </div>
-            </div> -->
-          </div>
-          <!-- <div class="job__desc__container active">
-            <div class="close-btn">
-              <ion-icon name="close-outline"></ion-icon>
-            </div>
-            <div class="job__desc__header">
-              <div class="company">
-                <img
-                  class="card-logo"
-                  src="imgs/logos/apple-logo-min.jpg"
-                  alt="logo"
-                />
-                <h5>Apple</h5>
-              </div>
-              <ion-icon class="bookmark" name="bookmark-outline"></ion-icon>
-            </div>
-            <div class="job__card__body">
-              <h5 class="job__card__title">
-                <a href="#">Backend Developer (Intern)</a>
-              </h5>
-              <div class="job__card__desc">
-                <p class="location onsite">On-site</p>
-                <p class="location">Noida</p>
-                <p class="package">12Lpa - 18Lpa</p>
-              </div>
-            </div>
-            <div class="buttons job__desc__btn">
-              <p class="date">7 Mar</p>
-              <button class="card-btn">Apply</button>
-            </div>
-
-            <div class="job__desc__body">
-              <div class="job__desc">
-                <label class="heading-tertiary" for="description">Description</label>
-                <p class="description">
-                  Autodesk Enterprise Customer Success organization is seeking a
-                  talented Technical Consultant (Back End Developer) to design
-                  and develop customized and configured solutions for their
-                  Enterprise Application (EA) integrations with cloud-based
-                  technologies. This individual will work with the global
-                  consulting team to develop custom solutions built on Autodesk
-                  Cloud and On-Premises Products. This is an individual
-                  contributor role but has substantial influence and
-                  responsibility. The ideal candidate will have experience
-                  developing products and systems in Autodesk Forge and
-                  Microsoft Azure.
-                </p>
-              </div>
-              <div class="job__responsibility">
-                <label class="heading-tertiary"  for="responsibility">Responsibility</label>
-                <p class="responsibility">
-                  <ul class="res__list job__desc__list">
-                    <li class="res__item">Minimum 6 years of experience in the web and cloud technology domain</li>
-                    <li class="res__item">4-year Bachelor’s degree from an accredited institution in engineering, preferably with civil & mechanical specialization</li>
-                    <li class="res__item">Mandatory Extensive experience with Autodesk products like AutoCAD, Civil3D, and Revit and hands-on expertise with Revit API, Forge API and Microsoft Azure</li>
-                    <li class="res__item">Strong .NET skills (C#.net preferred)</li>
-                    <li class="res__item">Strong Experience with REST API creation</li>
-                  </ul>
-                </p>
-                <div class="tech__stack">
-                  <label class="heading-tertiary" for="tech__stack__list">Tech Stack</label>
-                  <ul class="tech__stack__list">
-                    <li class="tech__stack__item">C++</li>
-                    <li class="tech__stack__item">Java</li>
-                    <li class="tech__stack__item">JavaScript</li>
-                    <li class="tech__stack__item">Database</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="job__requirements">
-                <label class="heading-tertiary" for="requirements">Requirements</label>
-                <p class="requirements">
-                  <ul class="require__list job__desc__list">
-                    <li class="require__item">Minimum 6 years of experience in the web and cloud technology domain</li>
-                    <li class="require__item">4-year Bachelor’s degree from an accredited institution in engineering, preferably with civil & mechanical specialization</li>
-                    <li class="require__item">Mandatory Extensive experience with Autodesk products like AutoCAD, Civil3D, and Revit and hands-on expertise with Revit API, Forge API and Microsoft Azure</li>
-                    <li class="require__item">Strong .NET skills (C#.net preferred)</li>
-                    <li class="require__item">Strong Experience with REST API creation</li>
-                  </ul>
-                </p>
-              </div>
-            </div>
-          </div> -->
+          <div class="jobs__container"></div>
           <div class="paging-container">
             <ul class="pages">
               <li class="slide">
@@ -249,6 +159,7 @@
             </ul>
           </div>
         </div>
+        <div class="job__description"></div>
       </section>
     </main>
     <footer class="footer">

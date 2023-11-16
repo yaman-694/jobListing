@@ -155,3 +155,11 @@ ul {
 strong {
   font-weight: 500;
 }
+
+select {
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  border-radius: 14rem;
+  border: 3px solid var(--primary-color);
+  background-color: transparent;
+}
