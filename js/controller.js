@@ -43,6 +43,7 @@ const closeDescriptionController = function () {
 
 const filterController = async function (category, country) {
   try {
+    console.log(category, country)
     if (
       category !== model.state.filterCategory ||
       country !== model.state.filterCountry

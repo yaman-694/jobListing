@@ -5,7 +5,7 @@ export const state = {
   jobs: [],
   bookmarks: [],
   pagination: {
-    pageLimit: 10,
+    pageLimit: 5,
     currentPage: 1,
   },
   category: [],
@@ -20,7 +20,7 @@ const createOptions = function (parent, data) {
   parent.innerHTML = '';
   // add default option
   const defaultOption = document.createElement('option');
-  defaultOption.setAttribute('value', 'all');
+  defaultOption.setAttribute('value', '');
   defaultOption.textContent = 'All';
   parent.appendChild(defaultOption);
   data.forEach(c => {

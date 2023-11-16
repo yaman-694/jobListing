@@ -36,21 +36,13 @@ class FilterView extends View {
       const category = e.target.closest('.list__item');
       const country = e.target.closest('.country__select');
       const categorySelect = document.querySelector('.category__select');
-      this._country = country
-        ? country?.value !== 'all'
-          ? country?.value
-          : this._country
-        : this._country;
+      this._country = country ? country?.value : this._country;
       if (
         !category
           ?.closest('.categories__container')
           .classList.contains('not-active')
       ) {
-        this._category = category
-          ? category?.id !== 'all'
-            ? category?.id
-            : this._category
-          : this._category;
+        this._category = category ? category?.id : this._category;
       }
 
       if (!categorySelect.classList.contains('not-active')) {
