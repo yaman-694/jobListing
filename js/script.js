@@ -70,6 +70,11 @@ const createJobObject = function (results) {
   state.jobs = results.data.map(data => {
     jobCategory.add(data.job_category);
     jobCountry.add(data.country);
+    const postedAt = new Date(data.created_on).toLocaleDateString('en-US', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    });
     return {
       jobId: data.id,
       position: data.name,
@@ -80,7 +85,7 @@ const createJobObject = function (results) {
       techStack: data.job_skill,
       jobCategory: data.job_category,
       contract: data.job_type,
-      postedAt: data.created_at,
+      postedAt,
       bookmarked: state.bookmarks.includes(data.id),
       applied: state.applied.includes(data.id),
     };
@@ -110,6 +115,7 @@ const getJobs = async () => {
   if (!data.ok) throw new Error(`${results.message} (${data.status})`);
   const results = await data.json();
   createJobObject(results);
+  console.log(state.jobs[0])
   addCountryOptions(state.country);
   addCategoryOptions(state.category);
 };
