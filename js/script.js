@@ -115,7 +115,6 @@ const getJobs = async () => {
   if (!data.ok) throw new Error(`${results.message} (${data.status})`);
   const results = await data.json();
   createJobObject(results);
-  console.log(state.jobs[0])
   addCountryOptions(state.country);
   addCategoryOptions(state.category);
 };
@@ -132,7 +131,6 @@ const getJobDescription = function (jobId) {
 
 const filterJobs = async function () {
   let data;
-  console.log(state);
   if (
     state.filterCategory === '' &&
     state.filterCountry === '' &&
@@ -246,8 +244,6 @@ class JobCardView extends View {
           <div class="job__card" data-id='${job.jobId}' >
           <div class="job__card__header">
             <div class="company">
-              <img class='card-logo' src=${job.logo} alt="logo" />
-              <h5>${job.company}</h5>
             </div>
             <ion-icon class="bookmark" name="bookmark${
               job.bookmarked ? '' : '-outline'
@@ -487,7 +483,6 @@ const closeDescriptionController = function () {
 
 const filterController = async function (category, country) {
   try {
-    console.log(category, country);
     if (category !== state.filterCategory || country !== state.filterCountry) {
       jobCardView.renderSpinner();
       state.filterCategory = category;
