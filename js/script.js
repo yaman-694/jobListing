@@ -34,12 +34,12 @@ const state = {
   city: '',
 };
 
-const createOptions = function (parent, data) {
+const createOptions = function (parent, data, type) {
   parent.innerHTML = '';
   // add default option
   const defaultOption = document.createElement('option');
   defaultOption.setAttribute('value', '');
-  defaultOption.textContent = 'All';
+  defaultOption.textContent = `All ${type}`;
   parent.appendChild(defaultOption);
   data.forEach(c => {
     const option = document.createElement('option');
@@ -51,14 +51,14 @@ const createOptions = function (parent, data) {
 
 const addCategoryOptions = function (category) {
   const categorySelect = document.querySelector('.category__select');
-  createOptions(categorySelect, category);
+  createOptions(categorySelect, category, 'Categories');
   // first clear all the options
 };
 
 const addCountryOptions = function (country) {
   const countrySelect = document.querySelector('.country__select');
   // first clear all the options
-  createOptions(countrySelect, country);
+  createOptions(countrySelect, country, 'Countries');
 };
 const createJobObject = function (results) {
   const jobCategory = new Set();
@@ -125,9 +125,17 @@ const getJobDescription = function (jobId) {
 };
 
 const filterJobs = async function () {
-  const data = await getJSON(
-    `${config.url}jobs/search?job_category=${state.filterCategory}&country=${state.filterCountry}&city=${state.city}&job_skill=${state.jobSkill}`
-  );
+  let data;
+  if (
+    state.filterCategory === '' &&
+    state.filterCountry === ''
+  ) {
+    data = await getJSON(`${config.url}jobs`);
+  } else {
+    data = await getJSON(
+      `${config.url}jobs/search?job_category=${state.filterCategory}&country=${state.filterCountry}&city=${state.city}&job_skill=${state.jobSkill}`
+    );
+  }
   if (!data.ok) {
     throw new Error(`${data.message} (${data.status})`);
   }
@@ -306,8 +314,8 @@ class DescriptionView extends View {
             <div class="buttons job__desc__btn">
               <p class="date">${job.postedAt}</p>
               <button class="card-btn ${job.applied ? 'active' : ''}">${
-                job.applied ? 'Applied' : 'Apply'
-              }</button>
+      job.applied ? 'Applied' : 'Apply'
+    }</button>
             </div>
 
             <div class="job__desc__body">
@@ -370,9 +378,7 @@ class FilterView extends View {
 
       if (!categorySelect.classList.contains('not-active')) {
         this._category = categorySelect
-          ? categorySelect?.value !== 'all'
-            ? categorySelect?.value
-            : this._category
+          ? categorySelect?.value
           : this._category;
       }
       handler(this._category, this._country);
