@@ -111,7 +111,12 @@
   }
   
   .section__jobs__button__container {
-    display: none;
+    justify-self: start;
+  }
+
+  .reset-btn {
+    padding: 1rem 1.5rem;
+    font-size: 1.6rem;
   }
 
   .logos img {
