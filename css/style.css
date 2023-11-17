@@ -499,3 +499,12 @@ logo: #0b7285
     transform: rotate(360deg);
   }
 }
+
+
+.error {
+  margin: 5rem auto;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}

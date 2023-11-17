@@ -126,6 +126,7 @@ const getJobDescription = function (jobId) {
 
 const filterJobs = async function () {
   let data;
+  console.log(state);
   if (
     state.filterCategory === '' &&
     state.filterCountry === '' &&
@@ -142,8 +143,12 @@ const filterJobs = async function () {
     throw new Error(`${data.message} (${data.status})`);
   }
   const results = await data.json();
-  console.log(results);
   if (results.length !== 0) createJobObject(results);
+  else {
+    state.jobSkill = '';
+    state.city = '';
+    state.jobs = [];
+  }
 };
 
 const getSearchResultsPage = function (page = 1) {
@@ -161,7 +166,7 @@ class View {
   _data;
   render(data, render = true) {
     if (!data || (Array.isArray(data) && data.length === 0)) {
-      console.log(data);
+      return this.renderError();
     }
     this._data = data;
     const markup = this._generateMarkup();
@@ -172,6 +177,16 @@ class View {
 
   _clear() {
     this._parentElement.innerHTML = '';
+  }
+
+  renderError(message = this._errorMessage) {
+    const markup = `
+    <div class="error">
+      <p>${message}</p>
+    </div>
+    `;
+    this._clear();
+    this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
   renderSpinner() {
@@ -191,7 +206,7 @@ class View {
 
 class JobCardView extends View {
   _parentElement = document.querySelector('.jobs__container');
-
+  _errorMessage = 'No jobs found for your query. Please try again!';
   addHandlerRender(handler) {
     window.addEventListener('load', handler);
     document.querySelector('.reset-btn').addEventListener('click', handler);
