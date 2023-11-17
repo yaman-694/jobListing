@@ -128,7 +128,9 @@ const filterJobs = async function () {
   let data;
   if (
     state.filterCategory === '' &&
-    state.filterCountry === ''
+    state.filterCountry === '' &&
+    state.city === '' &&
+    state.jobSkill === ''
   ) {
     data = await getJSON(`${config.url}jobs`);
   } else {
